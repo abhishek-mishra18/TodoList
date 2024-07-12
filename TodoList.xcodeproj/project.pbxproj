@@ -17,6 +17,10 @@
 		B9E1653E2C40FB9A00380BD2 /* TodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E1653D2C40FB9A00380BD2 /* TodoListTests.swift */; };
 		B9E165482C40FB9A00380BD2 /* TodoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E165472C40FB9A00380BD2 /* TodoListUITests.swift */; };
 		B9E1654A2C40FB9A00380BD2 /* TodoListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E165492C40FB9A00380BD2 /* TodoListUITestsLaunchTests.swift */; };
+		B9E165582C40FD2400380BD2 /* TodoListData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E165562C40FD2400380BD2 /* TodoListData+CoreDataClass.swift */; };
+		B9E165592C40FD2400380BD2 /* TodoListData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E165572C40FD2400380BD2 /* TodoListData+CoreDataProperties.swift */; };
+		B9E1655D2C4104DF00380BD2 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E1655C2C4104DF00380BD2 /* MyTableViewCell.xib */; };
+		B9E1655E2C4104DF00380BD2 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E1655B2C4104DF00380BD2 /* MyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		B9E165432C40FB9A00380BD2 /* TodoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E165472C40FB9A00380BD2 /* TodoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListUITests.swift; sourceTree = "<group>"; };
 		B9E165492C40FB9A00380BD2 /* TodoListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B9E165562C40FD2400380BD2 /* TodoListData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoListData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B9E165572C40FD2400380BD2 /* TodoListData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoListData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B9E1655B2C4104DF00380BD2 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		B9E1655C2C4104DF00380BD2 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +109,12 @@
 		B9E165222C40FB9900380BD2 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
+				B9E1655A2C40FDA100380BD2 /* TodoListItem */,
 				B9E165232C40FB9900380BD2 /* AppDelegate.swift */,
 				B9E165252C40FB9900380BD2 /* SceneDelegate.swift */,
 				B9E165272C40FB9900380BD2 /* ViewController.swift */,
+				B9E1655B2C4104DF00380BD2 /* MyTableViewCell.swift */,
+				B9E1655C2C4104DF00380BD2 /* MyTableViewCell.xib */,
 				B9E165292C40FB9900380BD2 /* Main.storyboard */,
 				B9E1652F2C40FB9A00380BD2 /* Assets.xcassets */,
 				B9E165312C40FB9A00380BD2 /* LaunchScreen.storyboard */,
@@ -128,6 +139,15 @@
 				B9E165492C40FB9A00380BD2 /* TodoListUITestsLaunchTests.swift */,
 			);
 			path = TodoListUITests;
+			sourceTree = "<group>";
+		};
+		B9E1655A2C40FDA100380BD2 /* TodoListItem */ = {
+			isa = PBXGroup;
+			children = (
+				B9E165562C40FD2400380BD2 /* TodoListData+CoreDataClass.swift */,
+				B9E165572C40FD2400380BD2 /* TodoListData+CoreDataProperties.swift */,
+			);
+			path = TodoListItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9E165302C40FB9A00380BD2 /* Assets.xcassets in Resources */,
+				B9E1655D2C4104DF00380BD2 /* MyTableViewCell.xib in Resources */,
 				B9E165332C40FB9A00380BD2 /* Base in Resources */,
 				B9E1652B2C40FB9900380BD2 /* Base in Resources */,
 			);
@@ -261,8 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9E1655E2C4104DF00380BD2 /* MyTableViewCell.swift in Sources */,
 				B9E165282C40FB9900380BD2 /* ViewController.swift in Sources */,
 				B9E165242C40FB9900380BD2 /* AppDelegate.swift in Sources */,
+				B9E165582C40FD2400380BD2 /* TodoListData+CoreDataClass.swift in Sources */,
+				B9E165592C40FD2400380BD2 /* TodoListData+CoreDataProperties.swift in Sources */,
 				B9E165262C40FB9900380BD2 /* SceneDelegate.swift in Sources */,
 				B9E1652E2C40FB9900380BD2 /* TodoList.xcdatamodeld in Sources */,
 			);
