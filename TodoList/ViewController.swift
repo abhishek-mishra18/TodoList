@@ -72,10 +72,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let model = models[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: MyTableViewCell.identifier , for: indexPath) as! MyTableViewCell
         cell.title.text = model.todoTitle
-        cell.myDescription.text = model.todoDescription
+        //cell.myDescription.text = model.todoDescription
         
         if let createdAt = model.createdAt {
-                    cell.createdAt.text = DateFormatter.localizedString(from: createdAt, dateStyle: .short, timeStyle: .short)
+            cell.createdAt.text = DateFormatter.localizedString(from: createdAt, dateStyle: .short, timeStyle: .none)
                 }
         
         return cell
@@ -84,17 +84,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true )
         let todo = models[indexPath.row]
-        let sheet = UIAlertController(title: "Edit",
+        let sheet = UIAlertController(title: "Edit methods",
                                       message: nil,
                                       preferredStyle: .actionSheet)
+        
+        
         sheet.addAction(UIAlertAction(title: "Cancel",
                                       style: .cancel,
                                       handler: nil))
+        
         sheet.addAction(UIAlertAction(title: "Edit",
                                       style: .default,
                                       handler: { _ in
-            let alert = UIAlertController(title: "New Todo",
-                                          message: "Enter New Todo",
+            let alert = UIAlertController(title: "Edit Todo",
+                                          message: "",
                                           preferredStyle: .alert)
             
             alert.addTextField { textField in
@@ -113,16 +116,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     textField.placeholder = "Second item"
                 }
             
-            alert.addAction(UIAlertAction(title: "Submit", style: .cancel, handler: { [weak self] _ in
+            alert.addAction(UIAlertAction(title: "Save", style: .cancel, handler: { _ in
                 guard let firstField = alert.textFields?[0],
                       let secondField = alert.textFields?[1],
                       let text1 = firstField.text, !text1.isEmpty,
                       let text2 = secondField.text, !text2.isEmpty else {
                     return
                 }
-                self?.createItem(title: text1, description: text2)
+                self.updateItem(todo: todo, newTitle: text1, newDescripption: text2)
             }))
-            present(alert, animated: true, completion: nil)
+            
+            self.present(alert, animated: true, completion: nil)
         }))
         sheet.addAction(UIAlertAction(title: "Delete",
                                       style: .destructive,
@@ -168,6 +172,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         context.delete(todo)
         do{
             try context.save()
+            getAllItems()
         }
         catch{}
     }
@@ -177,6 +182,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         todo.todoDescription = newDescripption
         do{
             try context.save()
+            getAllItems()
         }
         catch{}
     }
